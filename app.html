@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A coding project by Pavlin Hristov</title>
+    <title>Taco Cat: A coding project by Pavlin Hristov</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,7 +29,7 @@
     <!-- ===== Nav Section ========= -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/logo/Logo_initials.png" class="d-inline-block align-text-botom" width="36" alt=""> APP NAME</a>
+            <a class="navbar-brand" href="#"><img src="/img/logo/Logo_initials.png" class="d-inline-block align-text-botom" width="36" alt="">Taco Cat</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,8 +57,45 @@
     </nav>
     <!-- ===== Main Section ========= -->  
     <main class="flex-shrink-0">
-        <div class="container">
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-lg-2 ">
+                <!-- left column -->
+                <div class="col col-lg-5">
+                    <h5 class="display-5"><b>Taco Cat: A coding Project</b></h5>
+                    <p class=" border-bottom  border-2 pb-2">Javascript coding exercise using loops. Enter a word and you will see if it is a palindrome.</p>
+                    <div class="row">
+                        <h5 class="dispaly-5"><b></b>Instructions :</b></h5>
+                        <p>.</p>
+                    </div>
+                </div>
 
+                <!-- Right Side -->
+                <div class="col col-lg-7 border-start border-2">
+                    <div class="row ms-3">
+                        <div class="col border-bottom border-danger">
+                            <h5>Enter a word here: </h5>        
+                        </div>
+                    </div>
+                    <div class="row ms-3 mt-3">
+                        <div class="col-5">
+                            <input type="text" class="form-control" id="tacoWord" value="TacoCat!" placeholder="TacoCat!">
+                        </div>
+                    </div>
+                    <div class="row ms-3 mt-3">
+                        <div class="col-3">
+                            <button type="button" id="submitTaco" class="btn btn-dark">Check it</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Results -->
+                    <h5 class="display-6 mt-5 ms-3 invisible" id="res">Results:</h5>
+                    
+                    <div class="alert alert-danger mt-5 invisible fade show" id="alert" role="alert">
+                        <h4 class="alert-heading" id="alert_text">Your string is NOT a palindrome!</h4>
+                        <hr>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <!-- ===== Footer Section ========= -->
@@ -86,5 +123,6 @@
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
     </script>
     <script src="/js/site.js"></script>
+    <script>document.getElementById("submitTaco").addEventListener("click", getValue)</script>
 </body>
 </html>

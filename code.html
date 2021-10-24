@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A coding project by Pavlin Hristov</title>
+    <title>Taco Cat: A coding project by Pavlin Hristov</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,7 +30,7 @@
     <!-- ===== Nav Section ========= -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/logo/Logo_initials.png" class="d-inline-block align-text-botom" width="36" alt=""> APP NAME</a>
+            <a class="navbar-brand" href="#"><img src="/img/logo/Logo_initials.png" class="d-inline-block align-text-botom" width="36" alt=""> Taco Cat</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -59,22 +59,65 @@
     <!-- ===== Main Section ========= -->  
     <main class="flex-shrink-0">
         <div class="container py- px-5">
-            <h2 class="border-1 border-bottom border-dark py-1">The code for APP NAME</h2>
+            <h2 class="border-1 border-bottom border-dark py-1">The code for Taco Cat</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8" >
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            // Here we go again...
-                                function HelloWorld(){
-                                    alert("Hello World!")
+                            function getValue(){
+                                let tacoValue = document.getElementById("tacoWord").value.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]|\s/gi, '').replace(/[0-9]/g, '');
+                                
+                                if (tacoValue.length > 1) {
+                                    finalTaco = isThisTaco(tacoValue);
+                                    displayTaco(finalTaco);
                                 }
+                                else{
+                                    alert("Please enter a string with more than one letter.")
+                                }
+                            }
+                            
+                            function isThisTaco(tacoValue){
+                                finalTaco = ""
+                                for (let index = tacoValue.length - 1; index >= 0; index--) {
+                                    finalTaco += tacoValue[index];
+                                }
+                            
+                                if (finalTaco == tacoValue){
+                                    return true;
+                                }
+                                else if (finalTaco != tacoValue){
+                                    return false;
+                                }
+                            }
+                            
+                            function displayTaco(finalTaco){
+                                let upperTaco = document.getElementById("tacoWord").value.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]|\s/gi, '').replace(/[0-9]/g, '').split("").reverse().join("");
+                                if(finalTaco == true){
+                                    document.getElementById("res").classList.remove("invisible");
+                                    document.getElementById("alert").classList.remove("alert-danger");
+                                    document.getElementById("alert").classList.add("alert-success");
+                                    document.getElementById("alert_text").innerHTML = `${upperTaco} is a palindrome!`
+                                    document.getElementById("alert").classList.remove("invisible");
+                                }
+                                else{
+                                    document.getElementById("res").classList.remove("invisible");
+                                    document.getElementById("alert").classList.remove("alert-success");
+                                    document.getElementById("alert").classList.add("alert-danger");
+                                    document.getElementById("alert_text").innerHTML = `${upperTaco} is NOT a palindrome!`
+                                    document.getElementById("alert").classList.remove("invisible");
+                                }
+                                
+                            }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                   <p> The Code is structured in one function</p>
-                   <h5>Hello World</h5>
-                   <p>HelloWorld is a function that displays an alert message with "Hello world"</p>
+                   <h5><b>function getValue</b></h5>
+                   <p>This function gets the word we have to check and makes the word all lower case and removes all numbers and special characters. After that we make a check if the word is more than one character. If it is more than one characters we are calling the isThisTaco and displayTaco functions. <br><br></p>
+                   <h5><b>function isThisTaco</b></h5>
+                   <p><i><b>input: tacoValue(string)</b></i> <br>This function gets the string and starts looping from the last to the first index and concatenates all chars into a string called finalTaco. We check if the input and the reversed word are the same and return a boolean. <br><br></p>
+                   <h5><b>function displayTaco</b></h5>
+                   <p><i><b>input: finalTaco(boolean)</b></i><br>This function updates the HTML. Depending of the bool we change the alert to either danger or success and update the message appropriatelly.</p>
                 </div>
             </div>
         </div>
